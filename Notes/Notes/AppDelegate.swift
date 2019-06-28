@@ -13,8 +13,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
+    class Class1 {
+        var class2: Class2?
+    }
+    
+    class Class2 {
+        var class1: Class1?
+    }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        
+        OperationQueue().addOperation {
+            self.window?.rootViewController?.view.backgroundColor = .red
+        }
+        
+        let class1 = Class1()
+        let class2 = Class2()
+        class1.class2 = class2
+        class1.class2?.class1 = class1
+        
+        OperationQueue.main.addOperation {
+            self.window?.rootViewController?.view.backgroundColor = .red
+        }
         // Override point for customization after application launch.
         return true
     }
