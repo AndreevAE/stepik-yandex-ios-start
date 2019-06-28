@@ -12,9 +12,14 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         // Do any additional setup after loading the view.
     }
 
+    override var prefersStatusBarHidden: Bool {
+        // WORKAROUND: uistatusbar received memory leak in background fix
+        return true
+    }
 
 }
 
