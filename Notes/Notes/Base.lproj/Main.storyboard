@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -9,16 +13,129 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Notes" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kr9-kc-3GX">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="JbV-y8-aTy">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="636.5"/>
+                                        <subviews>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter title for your note" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="um4-NM-HzG">
+                                                <rect key="frame" x="16.5" y="16" width="381.5" height="30"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="GoU-1p-5Dy">
+                                                <rect key="frame" x="16.5" y="62" width="381.5" height="183.5"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="yeN-7H-NQF">
+                                                <rect key="frame" x="105" y="261.5" width="204" height="31"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Use Destroy Date:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AJ3-wi-eIl">
+                                                        <rect key="frame" x="0.0" y="5.5" width="139" height="20.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oI7-uG-6Or">
+                                                        <rect key="frame" x="155" y="0.0" width="51" height="31"/>
+                                                        <connections>
+                                                            <action selector="switchDatePickerView:" destination="BYZ-38-t0r" eventType="valueChanged" id="h7b-Nv-zoc"/>
+                                                        </connections>
+                                                    </switch>
+                                                </subviews>
+                                            </stackView>
+                                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="srD-oD-2bB">
+                                                <rect key="frame" x="47" y="308.5" width="320" height="216"/>
+                                                <date key="date" timeIntervalSinceReferenceDate="584200269.44786704">
+                                                    <!--2019-07-07 13:51:09 +0000-->
+                                                </date>
+                                            </datePicker>
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="0aN-mo-0xL">
+                                                <rect key="frame" x="35" y="540.5" width="344" height="80"/>
+                                                <subviews>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gbP-5x-qCo">
+                                                        <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="80" id="3dV-07-fCL"/>
+                                                            <constraint firstAttribute="width" secondItem="gbP-5x-qCo" secondAttribute="height" multiplier="1:1" id="ykz-iQ-Qo0"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Csj-Qb-SAL">
+                                                        <rect key="frame" x="88" y="0.0" width="80" height="80"/>
+                                                        <color key="backgroundColor" red="0.0" green="0.97680455450000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="80" id="KhG-j4-4r3"/>
+                                                            <constraint firstAttribute="width" secondItem="Csj-Qb-SAL" secondAttribute="height" multiplier="1:1" id="d7O-Wh-two"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ffd-by-sgw">
+                                                        <rect key="frame" x="176" y="0.0" width="80" height="80"/>
+                                                        <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="80" id="2NL-08-wbZ"/>
+                                                            <constraint firstAttribute="width" secondItem="ffd-by-sgw" secondAttribute="height" multiplier="1:1" id="dPh-iH-Lsa"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JIt-NL-TGl">
+                                                        <rect key="frame" x="264" y="0.0" width="80" height="80"/>
+                                                        <color key="backgroundColor" red="0.99942404029999998" green="0.98555368190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="80" id="BGF-mm-Z6B"/>
+                                                            <constraint firstAttribute="width" secondItem="JIt-NL-TGl" secondAttribute="height" multiplier="1:1" id="ED3-5e-i3i"/>
+                                                        </constraints>
+                                                    </view>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="um4-NM-HzG" firstAttribute="width" secondItem="GoU-1p-5Dy" secondAttribute="width" id="6qx-c6-83c"/>
+                                        </constraints>
+                                        <edgeInsets key="layoutMargins" top="16" left="16" bottom="16" right="16"/>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="JbV-y8-aTy" firstAttribute="top" secondItem="kr9-kc-3GX" secondAttribute="top" id="BUe-25-Fdd"/>
+                                    <constraint firstItem="JbV-y8-aTy" firstAttribute="leading" secondItem="kr9-kc-3GX" secondAttribute="leading" id="Lvr-v4-dGN"/>
+                                    <constraint firstAttribute="bottom" secondItem="JbV-y8-aTy" secondAttribute="bottom" id="iiT-nw-8cD"/>
+                                    <constraint firstItem="JbV-y8-aTy" firstAttribute="width" secondItem="kr9-kc-3GX" secondAttribute="width" id="tEQ-a8-Szj"/>
+                                    <constraint firstAttribute="trailing" secondItem="JbV-y8-aTy" secondAttribute="trailing" id="uWV-VM-3Pg"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="kr9-kc-3GX" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="k5b-WT-RXR"/>
+                            <constraint firstItem="kr9-kc-3GX" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="lqY-l5-6aQ"/>
+                            <constraint firstItem="kr9-kc-3GX" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="sDA-12-YvN"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="kr9-kc-3GX" secondAttribute="bottom" id="uQk-tU-lla"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="customColorView" destination="JIt-NL-TGl" id="HxU-G2-gyp"/>
+                        <outlet property="datePicker" destination="srD-oD-2bB" id="feq-oN-d6G"/>
+                        <outlet property="datePickerSwitcher" destination="oI7-uG-6Or" id="I2p-Pd-H4d"/>
+                        <outlet property="noteTextView" destination="GoU-1p-5Dy" id="HBz-Qu-LLB"/>
+                        <outlet property="noteTitleTextField" destination="um4-NM-HzG" id="fGY-EV-pJj"/>
+                        <outlet property="secondColorView" destination="Csj-Qb-SAL" id="M8G-jJ-Hsd"/>
+                        <outlet property="selectedColorView" destination="gbP-5x-qCo" id="awM-77-38B"/>
+                        <outlet property="thirdColorView" destination="ffd-by-sgw" id="feX-cy-vww"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="137.68115942028987" y="123.88392857142857"/>
         </scene>
     </scenes>
 </document>
