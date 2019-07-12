@@ -21,8 +21,8 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kr9-kc-3GX">
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="JbV-y8-aTy">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="636.5"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="JbV-y8-aTy">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="590.5"/>
                                         <subviews>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter title for your note" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="um4-NM-HzG">
                                                 <rect key="frame" x="16.5" y="16" width="381.5" height="30"/>
@@ -31,14 +31,14 @@
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="GoU-1p-5Dy">
-                                                <rect key="frame" x="16.5" y="62" width="381.5" height="183.5"/>
+                                                <rect key="frame" x="16.5" y="54" width="381.5" height="183.5"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
                                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="yeN-7H-NQF">
-                                                <rect key="frame" x="105" y="261.5" width="204" height="31"/>
+                                                <rect key="frame" x="105" y="245.5" width="204" height="31"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Use Destroy Date:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AJ3-wi-eIl">
                                                         <rect key="frame" x="0.0" y="5.5" width="139" height="20.5"/>
@@ -55,43 +55,51 @@
                                                 </subviews>
                                             </stackView>
                                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="srD-oD-2bB">
-                                                <rect key="frame" x="47" y="308.5" width="320" height="216"/>
+                                                <rect key="frame" x="47" y="284.5" width="320" height="216"/>
                                                 <date key="date" timeIntervalSinceReferenceDate="584200269.44786704">
                                                     <!--2019-07-07 13:51:09 +0000-->
                                                 </date>
+                                                <connections>
+                                                    <action selector="datePickerValueChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="bfm-fi-Uw3"/>
+                                                </connections>
                                             </datePicker>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="0aN-mo-0xL">
-                                                <rect key="frame" x="35" y="540.5" width="344" height="80"/>
+                                                <rect key="frame" x="63" y="508.5" width="288" height="66"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gbP-5x-qCo">
-                                                        <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="66" height="66"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <gestureRecognizers/>
                                                         <constraints>
-                                                            <constraint firstAttribute="width" constant="80" id="3dV-07-fCL"/>
+                                                            <constraint firstAttribute="width" relation="lessThanOrEqual" constant="80" id="3dV-07-fCL"/>
+                                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="60" id="ul4-t0-jIZ"/>
                                                             <constraint firstAttribute="width" secondItem="gbP-5x-qCo" secondAttribute="height" multiplier="1:1" id="ykz-iQ-Qo0"/>
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Csj-Qb-SAL">
-                                                        <rect key="frame" x="88" y="0.0" width="80" height="80"/>
+                                                        <rect key="frame" x="74" y="0.0" width="66" height="66"/>
                                                         <color key="backgroundColor" red="0.0" green="0.97680455450000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="width" constant="80" id="KhG-j4-4r3"/>
+                                                            <constraint firstAttribute="width" relation="lessThanOrEqual" constant="80" id="KhG-j4-4r3"/>
+                                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="60" id="aHd-yd-cJG"/>
                                                             <constraint firstAttribute="width" secondItem="Csj-Qb-SAL" secondAttribute="height" multiplier="1:1" id="d7O-Wh-two"/>
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ffd-by-sgw">
-                                                        <rect key="frame" x="176" y="0.0" width="80" height="80"/>
+                                                        <rect key="frame" x="148" y="0.0" width="66" height="66"/>
                                                         <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="width" constant="80" id="2NL-08-wbZ"/>
+                                                            <constraint firstAttribute="width" relation="lessThanOrEqual" constant="80" id="2NL-08-wbZ"/>
+                                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="60" id="7gd-sV-DAg"/>
                                                             <constraint firstAttribute="width" secondItem="ffd-by-sgw" secondAttribute="height" multiplier="1:1" id="dPh-iH-Lsa"/>
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JIt-NL-TGl">
-                                                        <rect key="frame" x="264" y="0.0" width="80" height="80"/>
+                                                        <rect key="frame" x="222" y="0.0" width="66" height="66"/>
                                                         <color key="backgroundColor" red="0.99942404029999998" green="0.98555368190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="width" constant="80" id="BGF-mm-Z6B"/>
+                                                            <constraint firstAttribute="width" relation="lessThanOrEqual" constant="80" id="BGF-mm-Z6B"/>
+                                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="60" id="E0H-bm-nMI"/>
                                                             <constraint firstAttribute="width" secondItem="JIt-NL-TGl" secondAttribute="height" multiplier="1:1" id="ED3-5e-i3i"/>
                                                         </constraints>
                                                     </view>
@@ -126,10 +134,11 @@
                         <outlet property="customColorView" destination="JIt-NL-TGl" id="HxU-G2-gyp"/>
                         <outlet property="datePicker" destination="srD-oD-2bB" id="feq-oN-d6G"/>
                         <outlet property="datePickerSwitcher" destination="oI7-uG-6Or" id="I2p-Pd-H4d"/>
+                        <outlet property="firstColorView" destination="gbP-5x-qCo" id="oQw-GF-kyy"/>
                         <outlet property="noteTextView" destination="GoU-1p-5Dy" id="HBz-Qu-LLB"/>
                         <outlet property="noteTitleTextField" destination="um4-NM-HzG" id="fGY-EV-pJj"/>
+                        <outlet property="scrollView" destination="kr9-kc-3GX" id="O1a-CO-TBz"/>
                         <outlet property="secondColorView" destination="Csj-Qb-SAL" id="M8G-jJ-Hsd"/>
-                        <outlet property="selectedColorView" destination="gbP-5x-qCo" id="awM-77-38B"/>
                         <outlet property="thirdColorView" destination="ffd-by-sgw" id="feX-cy-vww"/>
                     </connections>
                 </viewController>
