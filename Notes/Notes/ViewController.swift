@@ -16,10 +16,10 @@ class ViewController: UIViewController {
     @IBOutlet weak var noteTextView: UITextView!
     @IBOutlet weak var datePickerSwitcher: UISwitch!
     @IBOutlet weak var datePicker: UIDatePicker!
-    @IBOutlet weak var firstColorView: UIView!
-    @IBOutlet weak var secondColorView: UIView!
-    @IBOutlet weak var thirdColorView: UIView!
-    @IBOutlet weak var customColorView: UIView!
+    @IBOutlet weak var firstColorView: ColorView!
+    @IBOutlet weak var secondColorView: ColorView!
+    @IBOutlet weak var thirdColorView: ColorView!
+    @IBOutlet weak var customColorView: ColorView!
     
     class Model {
         
@@ -38,8 +38,6 @@ class ViewController: UIViewController {
     }
     
     @IBAction func datePickerValueChanged(_ sender: UIDatePicker) {
-        // TODO:
-        print("\(sender.date)")
         self.model.selfDestructionDate = sender.date
     }
     
@@ -76,9 +74,6 @@ class ViewController: UIViewController {
                                                   name: UIResponder.keyboardWillHideNotification,
                                                   object: nil)
         
-        
-        // TODO: handle saving to let model
-        
     }
     
 
@@ -91,34 +86,43 @@ class ViewController: UIViewController {
 
 private extension ViewController {
     
+    func check(colorView: ColorView) {
+        _ = [self.firstColorView,
+        self.secondColorView,
+        self.thirdColorView,
+        self.customColorView].filter { $0.color.get() != colorView.color.get() }.map { $0.checked = false }
+        
+        colorView.checked = true
+    }
+    
     @objc func tapOnFirst(_ sender: UITapGestureRecognizer) {
         print("Tap First")
-        // TODO: handle selection, draw check mark
-        self.model.color = self.firstColorView.backgroundColor ?? UIColor.white
+        self.check(colorView: self.firstColorView)
+        self.model.color = self.firstColorView.color.get()
     }
     
     @objc func tapOnSecond(_ sender: UITapGestureRecognizer) {
         print("Tap Second")
-        // TODO: handle selection, draw check mark
-        self.model.color = self.secondColorView.backgroundColor ?? UIColor.red
+        self.check(colorView: self.secondColorView)
+        self.model.color = self.secondColorView.color.get()
     }
     
     @objc func tapOnThird(_ sender: UITapGestureRecognizer) {
         print("Tap Third")
-        // TODO: handle selection, draw check mark
-        self.model.color = self.thirdColorView.backgroundColor ?? UIColor.green
+        self.check(colorView: self.thirdColorView)
+        self.model.color = self.thirdColorView.color.get()
     }
     
     @objc func tapOnCustom(_ sender: UITapGestureRecognizer) {
         print("Tap Custom")
-        // TODO: handle selection, draw check mark
-        // TODO: color to Model
         
-        self.model.color = self.customColor
+        self.check(colorView: self.customColorView)
+        self.model.color = self.customColorView.color.get()
     }
     
     @objc func longTapOnCustom(_ sender: UILongPressGestureRecognizer) {
         let colorPickerVC = ColorPickerViewController { [weak self] (selectedColor) in
+            self?.customColorView.color = .custom(selectedColor)
             self?.model.color = selectedColor
         }
         
@@ -131,10 +135,10 @@ private extension ViewController {
         
 //        self.noteTextView.text = ""
         
-        self.firstColorView.backgroundColor = .white
-        self.secondColorView.backgroundColor = .red
-        self.thirdColorView.backgroundColor = .green
-        // TODO: custom pallete color
+        self.firstColorView.color = .white
+        self.secondColorView.color = .red
+        self.thirdColorView.color = .green
+        self.customColorView.color = .custom(nil)
         
         let firstTapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(tapOnFirst(_:)))
         let secondTapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(tapOnSecond(_:)))
