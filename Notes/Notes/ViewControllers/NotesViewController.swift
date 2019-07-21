@@ -40,6 +40,16 @@ extension NotesViewController: UITableViewDelegate {
         }
         
         self.navigationController?.pushViewController(noteEditorViewController, animated: true)
+        self.notesTableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+        return .delete
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        self.notebook.remove(with: self.notebook[indexPath.row].uid)
+        tableView.deleteRows(at: [indexPath], with: .left)
     }
     
 }
@@ -55,15 +65,29 @@ extension NotesViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let cell = tableView.dequeueReusableCell(withIdentifier: "noteCell", for: indexPath)
-        let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "noteCell")
+        let cellIdentifier = "noteCell"
+        if let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier) {
+            let note = self.notebook[indexPath.row]
+            
+            cell.textLabel?.text = note.title
+            cell.detailTextLabel?.text = note.content
+            cell.imageView?.image = self.rectImage(with: note.color)
+            
+            return cell
+        } else {
+            let cell = UITableViewCell(style: .subtitle, reuseIdentifier: cellIdentifier)
+            let note = self.notebook[indexPath.row]
+            
+            cell.textLabel?.text = note.title
+            cell.textLabel?.font = UIFont.boldSystemFont(ofSize: 17.0)
+            cell.detailTextLabel?.text = note.content
+            cell.detailTextLabel?.numberOfLines = 5
+            cell.detailTextLabel?.textColor = .lightGray
+            cell.imageView?.image = self.rectImage(with: note.color)
+            
+            return cell
+        }
         
-        cell.textLabel?.text = self.notebook[indexPath.row].title
-        cell.detailTextLabel?.text = self.notebook[indexPath.row].content
-        // TODO: image view from note color
-        //        cell.imageView
-        
-        return cell
     }
     
     
@@ -119,6 +143,19 @@ private extension NotesViewController {
                                                                       target: self,
                                                                       action: #selector(onAddNote))
         
+    }
+    
+    func rectImage(with color: UIColor) -> UIImage {
+        let size: CGFloat = 20.0
+        let renderer = UIGraphicsImageRenderer(size: CGSize(width: size, height: size))
+        let img = renderer.image { ctx in
+            let rectangle = CGRect(x: 0, y: 0, width: size, height: size)
+            ctx.cgContext.addRect(rectangle)
+            ctx.cgContext.setFillColor(color.cgColor)
+            ctx.cgContext.drawPath(using: .fill)
+        }
+        
+        return img
     }
     
     @objc func onAddNote() {

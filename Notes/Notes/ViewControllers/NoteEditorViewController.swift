@@ -143,7 +143,7 @@ private extension NoteEditorViewController {
             self?.model.color = selectedColor
         }
         
-        self.present(colorPickerVC, animated: true, completion: nil)
+        self.navigationController?.pushViewController(colorPickerVC, animated: true)
     }
     
     func setupView() {
@@ -153,8 +153,8 @@ private extension NoteEditorViewController {
         //        self.noteTextView.text = ""
         
         self.firstColorView.color = .white
-        self.secondColorView.color = .red
-        self.thirdColorView.color = .green
+        self.secondColorView.color = .green
+        self.thirdColorView.color = .red
         self.customColorView.color = .custom(nil)
         
         let firstTapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(tapOnFirst(_:)))

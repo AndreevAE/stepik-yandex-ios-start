@@ -43,7 +43,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
     
-    func tabBarImage() -> UIImage {
+    private func tabBarImage() -> UIImage {
         let size: CGFloat = 20.0
         let renderer = UIGraphicsImageRenderer(size: CGSize(width: size, height: size))
         let img = renderer.image { ctx in

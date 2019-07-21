@@ -24,7 +24,8 @@ class ColorPickerViewController: UIViewController {
     
     @IBAction func donePressed(_ sender: UIButton) {
         self.handler?(self.selectedColor)
-        self.dismiss(animated: true, completion: nil)
+        self.navigationController?.popViewController(animated: true)
+//        self.dismiss(animated: true, completion: nil)
     }
     
     private var handler: ((UIColor) -> Void)?
