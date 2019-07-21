@@ -18,6 +18,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         DDLog.add(DDOSLogger.sharedInstance)
         DDLogInfo("Notes App Started")
         
+        let noteEditorVC = NoteEditorViewController(nibName: nil, bundle: nil)
+        self.window = UIWindow(frame: UIScreen.main.bounds)
+        self.window?.rootViewController = noteEditorVC
+        self.window?.makeKeyAndVisible()
+        
         return true
     }
 

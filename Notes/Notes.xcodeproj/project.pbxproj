@@ -11,12 +11,12 @@
 		110C03DB22C3DE010036A4B7 /* NoteExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110C03DA22C3DE010036A4B7 /* NoteExtension.swift */; };
 		110C03DD22C3DE800036A4B7 /* FileNotebook.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110C03DC22C3DE800036A4B7 /* FileNotebook.swift */; };
 		11442B3422D7AF1200676A88 /* ColorPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11442B3222D7AF1200676A88 /* ColorPickerViewController.swift */; };
-		11442B3522D7AF1200676A88 /* ColorPickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11442B3322D7AF1200676A88 /* ColorPickerViewController.xib */; };
 		11C55AC222C3D99C00DD7AD5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11C55AC122C3D99C00DD7AD5 /* AppDelegate.swift */; };
-		11C55AC422C3D99C00DD7AD5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11C55AC322C3D99C00DD7AD5 /* ViewController.swift */; };
-		11C55AC722C3D99C00DD7AD5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 11C55AC522C3D99C00DD7AD5 /* Main.storyboard */; };
 		11C55AC922C3D99D00DD7AD5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 11C55AC822C3D99D00DD7AD5 /* Assets.xcassets */; };
 		11C55ACC22C3D99D00DD7AD5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 11C55ACA22C3D99D00DD7AD5 /* LaunchScreen.storyboard */; };
+		84766C0F22E4685900E1E6DE /* ColorPickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11442B3322D7AF1200676A88 /* ColorPickerViewController.xib */; };
+		84766C1222E4689D00E1E6DE /* NoteEditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84766C1022E4689D00E1E6DE /* NoteEditorViewController.swift */; };
+		84766C1322E4689D00E1E6DE /* NoteEditorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84766C1122E4689D00E1E6DE /* NoteEditorViewController.xib */; };
 		84A0CC7C22DBA2F40015F49B /* ColorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A0CC7B22DBA2F40015F49B /* ColorView.swift */; };
 		C77C922061DA23C01B10691D /* libPods-Notes.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A7C940DFBB307E35F406BE8 /* libPods-Notes.a */; };
 /* End PBXBuildFile section */
@@ -29,14 +29,14 @@
 		11442B3322D7AF1200676A88 /* ColorPickerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ColorPickerViewController.xib; sourceTree = "<group>"; };
 		11C55ABE22C3D99C00DD7AD5 /* Notes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Notes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		11C55AC122C3D99C00DD7AD5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		11C55AC322C3D99C00DD7AD5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		11C55AC622C3D99C00DD7AD5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		11C55AC822C3D99D00DD7AD5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		11C55ACB22C3D99D00DD7AD5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		11C55ACD22C3D99D00DD7AD5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1A7C940DFBB307E35F406BE8 /* libPods-Notes.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Notes.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3526FFBB82C1039D4D821ADD /* Pods-Notes.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Notes.debug.xcconfig"; path = "Target Support Files/Pods-Notes/Pods-Notes.debug.xcconfig"; sourceTree = "<group>"; };
 		6E85E6B5EBB01E16830487C7 /* Pods-Notes.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Notes.release.xcconfig"; path = "Target Support Files/Pods-Notes/Pods-Notes.release.xcconfig"; sourceTree = "<group>"; };
+		84766C1022E4689D00E1E6DE /* NoteEditorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteEditorViewController.swift; sourceTree = "<group>"; };
+		84766C1122E4689D00E1E6DE /* NoteEditorViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NoteEditorViewController.xib; sourceTree = "<group>"; };
 		84A0CC7B22DBA2F40015F49B /* ColorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorView.swift; sourceTree = "<group>"; };
 		E0A907D56486787CF1A9F755 /* Pods-Notes.test.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Notes.test.xcconfig"; path = "Target Support Files/Pods-Notes/Pods-Notes.test.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -84,16 +84,13 @@
 		11C55AC022C3D99C00DD7AD5 /* Notes */ = {
 			isa = PBXGroup;
 			children = (
+				84766C0E22E4669B00E1E6DE /* ViewControllers */,
 				84A0CC7A22DBA2D70015F49B /* Views */,
 				110C03D722C3DBFC0036A4B7 /* Model */,
 				11C55AC122C3D99C00DD7AD5 /* AppDelegate.swift */,
-				11C55AC322C3D99C00DD7AD5 /* ViewController.swift */,
-				11C55AC522C3D99C00DD7AD5 /* Main.storyboard */,
 				11C55AC822C3D99D00DD7AD5 /* Assets.xcassets */,
 				11C55ACA22C3D99D00DD7AD5 /* LaunchScreen.storyboard */,
 				11C55ACD22C3D99D00DD7AD5 /* Info.plist */,
-				11442B3222D7AF1200676A88 /* ColorPickerViewController.swift */,
-				11442B3322D7AF1200676A88 /* ColorPickerViewController.xib */,
 			);
 			path = Notes;
 			sourceTree = "<group>";
@@ -104,6 +101,17 @@
 				1A7C940DFBB307E35F406BE8 /* libPods-Notes.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		84766C0E22E4669B00E1E6DE /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				11442B3222D7AF1200676A88 /* ColorPickerViewController.swift */,
+				11442B3322D7AF1200676A88 /* ColorPickerViewController.xib */,
+				84766C1022E4689D00E1E6DE /* NoteEditorViewController.swift */,
+				84766C1122E4689D00E1E6DE /* NoteEditorViewController.xib */,
+			);
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 		84A0CC7A22DBA2D70015F49B /* Views */ = {
@@ -183,10 +191,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84766C0F22E4685900E1E6DE /* ColorPickerViewController.xib in Resources */,
+				84766C1322E4689D00E1E6DE /* NoteEditorViewController.xib in Resources */,
 				11C55ACC22C3D99D00DD7AD5 /* LaunchScreen.storyboard in Resources */,
 				11C55AC922C3D99D00DD7AD5 /* Assets.xcassets in Resources */,
-				11442B3522D7AF1200676A88 /* ColorPickerViewController.xib in Resources */,
-				11C55AC722C3D99C00DD7AD5 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -223,10 +231,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				110C03DD22C3DE800036A4B7 /* FileNotebook.swift in Sources */,
-				11C55AC422C3D99C00DD7AD5 /* ViewController.swift in Sources */,
 				11442B3422D7AF1200676A88 /* ColorPickerViewController.swift in Sources */,
 				84A0CC7C22DBA2F40015F49B /* ColorView.swift in Sources */,
 				110C03DB22C3DE010036A4B7 /* NoteExtension.swift in Sources */,
+				84766C1222E4689D00E1E6DE /* NoteEditorViewController.swift in Sources */,
 				11C55AC222C3D99C00DD7AD5 /* AppDelegate.swift in Sources */,
 				110C03D922C3DC940036A4B7 /* Note.swift in Sources */,
 			);
@@ -235,14 +243,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		11C55AC522C3D99C00DD7AD5 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				11C55AC622C3D99C00DD7AD5 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		11C55ACA22C3D99D00DD7AD5 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -317,7 +317,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 3W93N9TV32;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Notes/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -452,7 +452,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 3W93N9TV32;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Notes/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -471,7 +471,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 3W93N9TV32;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Notes/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

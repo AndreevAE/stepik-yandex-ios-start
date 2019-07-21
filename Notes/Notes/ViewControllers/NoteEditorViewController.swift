@@ -1,15 +1,15 @@
 //
-//  ViewController.swift
+//  NoteEditorViewController.swift
 //  Notes
 //
-//  Created by Александр Андреев on 26/06/2019.
+//  Created by Admin on 21/07/2019.
 //  Copyright © 2019 Alexander Andreev. All rights reserved.
 //
 
 import UIKit
 import CocoaLumberjack
 
-class ViewController: UIViewController {
+class NoteEditorViewController: UIViewController {
 
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var noteTitleTextField: UITextField!
@@ -76,21 +76,21 @@ class ViewController: UIViewController {
         
     }
     
-
+    
     override var prefersStatusBarHidden: Bool {
         // WORKAROUND: uistatusbar received memory leak in background fix
         return true
     }
-
+    
 }
 
-private extension ViewController {
+private extension NoteEditorViewController {
     
     func check(colorView: ColorView) {
         _ = [self.firstColorView,
-        self.secondColorView,
-        self.thirdColorView,
-        self.customColorView].filter { $0.color.get() != colorView.color.get() }.map { $0.checked = false }
+             self.secondColorView,
+             self.thirdColorView,
+             self.customColorView].filter { $0.color.get() != colorView.color.get() }.map { $0.checked = false }
         
         colorView.checked = true
     }
@@ -133,7 +133,7 @@ private extension ViewController {
         self.datePickerSwitcher.isOn = false
         self.datePicker.isHidden = true
         
-//        self.noteTextView.text = ""
+        //        self.noteTextView.text = ""
         
         self.firstColorView.color = .white
         self.secondColorView.color = .red
