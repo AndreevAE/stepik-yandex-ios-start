@@ -17,6 +17,10 @@
 		84766C0F22E4685900E1E6DE /* ColorPickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11442B3322D7AF1200676A88 /* ColorPickerViewController.xib */; };
 		84766C1222E4689D00E1E6DE /* NoteEditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84766C1022E4689D00E1E6DE /* NoteEditorViewController.swift */; };
 		84766C1322E4689D00E1E6DE /* NoteEditorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84766C1122E4689D00E1E6DE /* NoteEditorViewController.xib */; };
+		8479C57422E4F82000994AA3 /* GalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8479C57222E4F82000994AA3 /* GalleryViewController.swift */; };
+		8479C57522E4F82000994AA3 /* GalleryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8479C57322E4F82000994AA3 /* GalleryViewController.xib */; };
+		8479C57822E4FACC00994AA3 /* NotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8479C57622E4FACC00994AA3 /* NotesViewController.swift */; };
+		8479C57922E4FACC00994AA3 /* NotesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8479C57722E4FACC00994AA3 /* NotesViewController.xib */; };
 		84A0CC7C22DBA2F40015F49B /* ColorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A0CC7B22DBA2F40015F49B /* ColorView.swift */; };
 		C77C922061DA23C01B10691D /* libPods-Notes.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A7C940DFBB307E35F406BE8 /* libPods-Notes.a */; };
 /* End PBXBuildFile section */
@@ -37,6 +41,10 @@
 		6E85E6B5EBB01E16830487C7 /* Pods-Notes.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Notes.release.xcconfig"; path = "Target Support Files/Pods-Notes/Pods-Notes.release.xcconfig"; sourceTree = "<group>"; };
 		84766C1022E4689D00E1E6DE /* NoteEditorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteEditorViewController.swift; sourceTree = "<group>"; };
 		84766C1122E4689D00E1E6DE /* NoteEditorViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NoteEditorViewController.xib; sourceTree = "<group>"; };
+		8479C57222E4F82000994AA3 /* GalleryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryViewController.swift; sourceTree = "<group>"; };
+		8479C57322E4F82000994AA3 /* GalleryViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GalleryViewController.xib; sourceTree = "<group>"; };
+		8479C57622E4FACC00994AA3 /* NotesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesViewController.swift; sourceTree = "<group>"; };
+		8479C57722E4FACC00994AA3 /* NotesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NotesViewController.xib; sourceTree = "<group>"; };
 		84A0CC7B22DBA2F40015F49B /* ColorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorView.swift; sourceTree = "<group>"; };
 		E0A907D56486787CF1A9F755 /* Pods-Notes.test.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Notes.test.xcconfig"; path = "Target Support Files/Pods-Notes/Pods-Notes.test.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -110,6 +118,10 @@
 				11442B3322D7AF1200676A88 /* ColorPickerViewController.xib */,
 				84766C1022E4689D00E1E6DE /* NoteEditorViewController.swift */,
 				84766C1122E4689D00E1E6DE /* NoteEditorViewController.xib */,
+				8479C57222E4F82000994AA3 /* GalleryViewController.swift */,
+				8479C57322E4F82000994AA3 /* GalleryViewController.xib */,
+				8479C57622E4FACC00994AA3 /* NotesViewController.swift */,
+				8479C57722E4FACC00994AA3 /* NotesViewController.xib */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -191,7 +203,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8479C57522E4F82000994AA3 /* GalleryViewController.xib in Resources */,
 				84766C0F22E4685900E1E6DE /* ColorPickerViewController.xib in Resources */,
+				8479C57922E4FACC00994AA3 /* NotesViewController.xib in Resources */,
 				84766C1322E4689D00E1E6DE /* NoteEditorViewController.xib in Resources */,
 				11C55ACC22C3D99D00DD7AD5 /* LaunchScreen.storyboard in Resources */,
 				11C55AC922C3D99D00DD7AD5 /* Assets.xcassets in Resources */,
@@ -235,6 +249,8 @@
 				84A0CC7C22DBA2F40015F49B /* ColorView.swift in Sources */,
 				110C03DB22C3DE010036A4B7 /* NoteExtension.swift in Sources */,
 				84766C1222E4689D00E1E6DE /* NoteEditorViewController.swift in Sources */,
+				8479C57822E4FACC00994AA3 /* NotesViewController.swift in Sources */,
+				8479C57422E4F82000994AA3 /* GalleryViewController.swift in Sources */,
 				11C55AC222C3D99C00DD7AD5 /* AppDelegate.swift in Sources */,
 				110C03D922C3DC940036A4B7 /* Note.swift in Sources */,
 			);
@@ -317,7 +333,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 3W93N9TV32;
 				INFOPLIST_FILE = Notes/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -452,7 +468,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 3W93N9TV32;
 				INFOPLIST_FILE = Notes/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -471,7 +487,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 3W93N9TV32;
 				INFOPLIST_FILE = Notes/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

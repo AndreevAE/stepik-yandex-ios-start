@@ -41,6 +41,19 @@ class NoteEditorViewController: UIViewController {
         self.model.selfDestructionDate = sender.date
     }
     
+    init(note: Note) {
+        // TODO: full model
+        self.model.title = note.title
+        self.model.content = note.content
+        self.model.color = note.color
+        self.model.selfDestructionDate = note.selfDestructionDate
+        
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,6 +75,12 @@ class NoteEditorViewController: UIViewController {
                                                name:UIResponder.keyboardWillHideNotification,
                                                object: nil)
         
+        self.noteTitleTextField.text = self.model.title
+        self.noteTextView.text = self.model.content
+        // TODO: color
+        self.customColor = self.model.color
+        self.datePicker.date = self.model.selfDestructionDate ?? Date()
+        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -74,12 +93,6 @@ class NoteEditorViewController: UIViewController {
                                                   name: UIResponder.keyboardWillHideNotification,
                                                   object: nil)
         
-    }
-    
-    
-    override var prefersStatusBarHidden: Bool {
-        // WORKAROUND: uistatusbar received memory leak in background fix
-        return true
     }
     
 }

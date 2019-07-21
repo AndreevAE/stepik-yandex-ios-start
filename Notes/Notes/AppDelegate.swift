@@ -18,12 +18,41 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         DDLog.add(DDOSLogger.sharedInstance)
         DDLogInfo("Notes App Started")
         
-        let noteEditorVC = NoteEditorViewController(nibName: nil, bundle: nil)
+        let tabBarController = UITabBarController()
+        let img = self.tabBarImage()
+        
+        let notesViewController = NotesViewController(nibName: nil, bundle: nil)
+        let notesNavigationController = UINavigationController(rootViewController: notesViewController)
+        notesNavigationController.tabBarItem = UITabBarItem(title: "Notes",
+                                                            image: img,
+                                                            selectedImage: nil)
+        
+        
+        let galleryViewController = GalleryViewController(nibName: nil, bundle: nil)
+        galleryViewController.tabBarItem = UITabBarItem(title: "Gallery",
+                                                        image: img,
+                                                        selectedImage: nil)
+        
+        tabBarController.viewControllers = [notesNavigationController,
+                                            galleryViewController]
+        
         self.window = UIWindow(frame: UIScreen.main.bounds)
-        self.window?.rootViewController = noteEditorVC
+        self.window?.rootViewController = tabBarController
         self.window?.makeKeyAndVisible()
         
         return true
+    }
+    
+    func tabBarImage() -> UIImage {
+        let size: CGFloat = 20.0
+        let renderer = UIGraphicsImageRenderer(size: CGSize(width: size, height: size))
+        let img = renderer.image { ctx in
+            let rectangle = CGRect(x: 0, y: 0, width: size, height: size)
+            ctx.cgContext.addRect(rectangle)
+            ctx.cgContext.drawPath(using: .fill)
+        }
+        
+        return img
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
