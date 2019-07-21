@@ -23,6 +23,7 @@ class NoteEditorViewController: UIViewController {
     
     class Model {
         
+        var uid: String = ""
         var title: String = ""
         var content: String = ""
         var color: UIColor = UIColor()
@@ -30,6 +31,7 @@ class NoteEditorViewController: UIViewController {
         
     }
     
+    private let savingHandler: (Note) -> Void
     private var model = Model()
     private var customColor = UIColor()
     
@@ -41,13 +43,14 @@ class NoteEditorViewController: UIViewController {
         self.model.selfDestructionDate = sender.date
     }
     
-    init(note: Note) {
-        // TODO: full model
-        self.model.title = note.title
-        self.model.content = note.content
-        self.model.color = note.color
-        self.model.selfDestructionDate = note.selfDestructionDate
+    init(initNote: Note, savingHandler: @escaping (Note) -> Void) {
+        self.model.uid = initNote.uid
+        self.model.title = initNote.title
+        self.model.content = initNote.content
+        self.model.color = initNote.color
+        self.model.selfDestructionDate = initNote.selfDestructionDate
         
+        self.savingHandler = savingHandler
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -60,6 +63,7 @@ class NoteEditorViewController: UIViewController {
         
         // Do any additional setup after loading the view.
         self.setupView()
+        self.setupNavigationBar()
         DDLogInfo("ViewController didLoad")
     }
     
@@ -169,6 +173,28 @@ private extension NoteEditorViewController {
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
+    }
+    
+    func setupNavigationBar() {
+        
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem.init(barButtonSystemItem: .cancel, target: self, action: #selector(onCancel))
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(barButtonSystemItem: .done, target: self, action: #selector(onSave))
+        
+    }
+    
+    @objc func onCancel() {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+    @objc func onSave() {
+        let note = Note(uid: self.model.uid,
+                        title: self.noteTitleTextField.text ?? "",
+                        content: self.noteTextView.text,
+                        color: self.model.color,
+                        importance: .regular,
+                        selfDestructionDate: self.model.selfDestructionDate)
+        self.savingHandler(note)
+        self.navigationController?.popViewController(animated: true)
     }
     
     @objc func keyboardWillShow(notification:NSNotification) {

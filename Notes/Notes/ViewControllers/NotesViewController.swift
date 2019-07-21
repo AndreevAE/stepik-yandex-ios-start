@@ -22,6 +22,7 @@ class NotesViewController: UIViewController {
         self.notesTableView.delegate = self
         self.notesTableView.dataSource = self
         
+        self.setupNavigationBar()
         // TODO: DEBUG notes
         self.loadPlaceholderNotes()
     }
@@ -31,7 +32,12 @@ class NotesViewController: UIViewController {
 extension NotesViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let noteEditorViewController = NoteEditorViewController(note: self.notebook.notes[indexPath.row])
+        let noteEditorViewController = NoteEditorViewController(initNote: self.notebook[indexPath.row]) { [weak self] savedNote in
+            let uid = self?.notebook[indexPath.row].uid
+            self?.notebook.remove(with: uid ?? "1")
+            self?.notebook.add(savedNote)
+            self?.notesTableView.reloadRows(at: [indexPath], with: .automatic)
+        }
         
         self.navigationController?.pushViewController(noteEditorViewController, animated: true)
     }
@@ -52,8 +58,8 @@ extension NotesViewController: UITableViewDataSource {
 //        let cell = tableView.dequeueReusableCell(withIdentifier: "noteCell", for: indexPath)
         let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "noteCell")
         
-        cell.textLabel?.text = self.notebook.notes[indexPath.row].title
-        cell.detailTextLabel?.text = self.notebook.notes[indexPath.row].content
+        cell.textLabel?.text = self.notebook[indexPath.row].title
+        cell.detailTextLabel?.text = self.notebook[indexPath.row].content
         // TODO: image view from note color
         //        cell.imageView
         
@@ -102,6 +108,32 @@ private extension NotesViewController {
                          importance: .regular,
                          selfDestructionDate: nil)
         self.notebook.add(note6)
+    }
+    
+    func setupNavigationBar() {
+        
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem.init(barButtonSystemItem: .edit,
+                                                                     target: self,
+                                                                     action: #selector(onEdit))
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(barButtonSystemItem: .add,
+                                                                      target: self,
+                                                                      action: #selector(onAddNote))
+        
+    }
+    
+    @objc func onAddNote() {
+        let emptyNote = Note(title: "", content: "", importance: .regular, selfDestructionDate: nil)
+        
+        let noteEditorViewController = NoteEditorViewController(initNote: emptyNote) { [weak self] savedNote in
+            self?.notebook.add(savedNote)
+            self?.notesTableView.reloadData()
+        }
+        
+        self.navigationController?.pushViewController(noteEditorViewController, animated: true)
+    }
+    
+    @objc func onEdit() {
+        self.notesTableView.isEditing = !self.notesTableView.isEditing
     }
     
 }

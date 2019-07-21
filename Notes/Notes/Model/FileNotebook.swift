@@ -3,29 +3,28 @@ import Foundation
 
 class FileNotebook {
     
-    // TODO: dictionary
-//    private(set) var notes: [String: Note] = [:]
-    private(set) var notes: [Note]
+    private(set) var notes: [String: Note] = [:]
     
     
     init() {
-        self.notes = []
+        self.notes = [:]
     }
     
-    // TODO: add onlye unique notes by uid
     public func add(_ note: Note) {
-        self.notes.append(note)
+        self.notes[note.uid] = note
     }
     
     public func remove(with uid: String) {
-        self.notes.removeAll { (note) -> Bool in
-            note.uid == uid
-        }
+        self.notes[uid] = nil
+    }
+    
+    subscript (index: Int) -> Note {
+        return self.notes.sorted(by: { $0.key < $1.key })[index].value
     }
     
     func save() {
         if let cachePath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
-            let json = self.notes.map { $0.json }
+            let json = self.notes.map { $0.value.json }
             do {
                 let data = try JSONSerialization.data(withJSONObject: json, options: [])
                 let path = cachePath.appendingPathComponent("notebook")
@@ -42,7 +41,10 @@ class FileNotebook {
                 let path = cachePath.appendingPathComponent("notebook")
                 if let data = FileManager.default.contents(atPath: path.path) {
                     let json = try JSONSerialization.jsonObject(with: data, options: []) as! [[String: Any]]
-                    _ = json.map { self.notes.append(Note.parse(json: $0)!) }
+                    _ = json.map {
+                        let note = Note.parse(json: $0)!
+                        self.notes[note.uid] = note
+                    }
                 }
             } catch let error {
                 print("Can't load notes from cache: \(error.localizedDescription)")
